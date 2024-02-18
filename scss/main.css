@@ -11983,7 +11983,7 @@ html {
 }
 
 main {
-  margin-bottom: 218px;
+  margin-bottom: 272px;
 }
 
 footer.footer {
@@ -12025,4 +12025,8 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.text-justify {
+  text-align: justify;
 }/*# sourceMappingURL=main.css.map */
