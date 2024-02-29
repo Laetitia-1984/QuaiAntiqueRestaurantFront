@@ -12045,7 +12045,8 @@ p {
 .image-card {
   position: relative;
 }
-.image-card:hover .titre-image {
+.image-card:hover .titre-image,
+.image-card:hover .action-image-button {
   opacity: 1;
 }
 .image-card:hover img {
@@ -12062,7 +12063,24 @@ p {
   transform: translate(-50%, -50%);
   transition: all 0.3s;
 }
+.image-card .action-image-button {
+  top: 0;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  width: 100%;
+  padding: 5px;
+  opacity: 0;
+  transition: all 0.3s;
+}
 
 .form-label {
   color: #906427;
+}
+
+:-webkit-input-placeholder {
+  /* Chrome, Safari, Opera */
+  color: grey;
+  opacity: 0.5;
 }/*# sourceMappingURL=main.css.map */

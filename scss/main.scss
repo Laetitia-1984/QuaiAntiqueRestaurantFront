@@ -70,7 +70,8 @@ p {
     position: relative;
 
     &:hover {
-        .titre-image {
+        .titre-image, 
+        .action-image-button {
             opacity: 1;
         }
 
@@ -92,8 +93,26 @@ p {
         transform: translate(-50%, -50%);
         transition: all 0.3s;
     }
+
+    .action-image-button {
+        top: 0;
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        left: 0;
+        width: 100%;
+        padding: 5px;
+        opacity: 0;
+        transition: all 0.3s;
+    }
 }
 
 .form-label {
     color: $primary;
+}
+
+:-webkit-input-placeholder {
+    /* Chrome, Safari, Opera */
+    color: grey;
+    opacity: 0.5;
 }
