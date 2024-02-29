@@ -12083,4 +12083,10 @@ p {
   /* Chrome, Safari, Opera */
   color: grey;
   opacity: 0.5;
+}
+
+.allReservations a {
+  display: block;
+  color: #292222;
+  padding: 10px;
 }/*# sourceMappingURL=main.css.map */
