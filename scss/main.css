@@ -11993,7 +11993,17 @@ footer.footer {
   width: 100%;
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+h1, .h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
   font-family: "Montserrat", sans-serif;
 }
 
@@ -12003,6 +12013,7 @@ p {
 }
 
 .hero-scene {
+  margin-bottom: 15px;
   position: relative;
 }
 .hero-scene::before {
@@ -12050,4 +12061,8 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.3s;
+}
+
+.form-label {
+  color: #906427;
 }/*# sourceMappingURL=main.css.map */
