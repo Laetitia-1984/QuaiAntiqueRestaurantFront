@@ -4,6 +4,8 @@ const btnSignin = document.getElementById("btnSignin");
 
 btnSignin.addEventListener("click", checkCredentials);
 
+
+
 function checkCredentials() {
     //Ici, il faudra appeler l'API pour vérifier les informations de connexion
     if (mailInput.value == "test@gmail.com" && passwordInput.value == "123") {
@@ -12,7 +14,7 @@ function checkCredentials() {
         setToken(token);
 
         // Placer ce token en cookie.
-
+        setCookie(roleCookieName, "admin", 7);
         window.location.replace("/");
 
     } else {
