@@ -1,5 +1,4 @@
 // Implémenter le JS de ma page
-
 const inputName = document.getElementById("NameInput");
 const inputFirstName = document.getElementById("FirstNameInput");
 const inputEmail = document.getElementById("EmailInput");
@@ -121,7 +120,7 @@ function subscribeUser() { // Inscription nouvel user au clic sur le bouton "Ins
         redirect: "follow"
     };
 
-    fetch("http://127.0.0.1:8000/api/registration", requestOptions)
+    fetch(apiUrl+"registration", requestOptions)
         .then(response => {
             if (response.ok) {
                 return response.json();
