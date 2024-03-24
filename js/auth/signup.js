@@ -6,12 +6,15 @@ const inputEmail = document.getElementById("EmailInput");
 const inputPassword = document.getElementById("PasswordInput");
 const inputValidatePassword = document.getElementById("ValidatePasswordInput");
 const btnValidate = document.getElementById("btn-validate-signup");
+const subscribeForm = document.getElementById("subscribeForm");
 
 inputName.addEventListener("keyup", validateForm);
 inputFirstName.addEventListener("keyup", validateForm);
 inputEmail.addEventListener("keyup", validateForm);
 inputPassword.addEventListener("keyup", validateForm);
 inputValidatePassword.addEventListener("keyup", validateForm);
+
+btnValidate.addEventListener("click", subscribeUser);
 
 // Fonction permettant de valider tout le formulaire
 function validateForm() {
@@ -21,7 +24,7 @@ function validateForm() {
     const passwordOk = validatePassword(inputPassword);
     const passwordConfirmOk = validateConfirmationPassword(inputPassword, inputValidatePassword);
 
-    if(nameOk && firstNameOk && emailOk && passwordOk && passwordConfirmOk) {
+    if (nameOk && firstNameOk && emailOk && passwordOk && passwordConfirmOk) {
         btnValidate.disabled = false;
     } else {
         btnValidate.disabled = true;
@@ -69,7 +72,7 @@ function validatePassword(input) {
 }
 
 function validateConfirmationPassword(inputPwd, inputConfirmPwd) {
-    if(inputPwd.value == inputConfirmPwd.value) {
+    if (inputPwd.value == inputConfirmPwd.value) {
         inputConfirmPwd.classList.add("is-valid");
         inputConfirmPwd.classList.remove("is-invalid");
         return true;
@@ -96,4 +99,39 @@ function validateRequired(input) {
 
         return false;
     }
+}
+
+function subscribeUser() { // Inscription nouvel user au clic sur le bouton "Inscription"
+    let dataForm = new FormData(subscribeForm); // Récupère les valeurs dans cles champs du Form
+    
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+        "lastName": dataForm.get("name"),
+        "firstName": dataForm.get("firstName"),
+        "email": dataForm.get("email"),
+        "password": dataForm.get("password")
+    });
+
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+    };
+
+    fetch("http://127.0.0.1:8000/api/registration", requestOptions)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                alert("Erreur lors de l'inscription");
+            }
+        })
+        .then(result => {
+            alert ("Bravo "+dataForm.get("firstName")+", l'inscription s'est bien passé. Vous pouvez vous connecter");
+            document.location.href="/signin";
+        })
+        .catch((error) => console.error(error));
 }
